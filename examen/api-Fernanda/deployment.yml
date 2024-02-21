@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fernanda-api-deployment
+  namespace: api-fernanda
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fernanda-api
+  template:
+    metadata:
+      labels:
+        app: fernanda-api
+    spec:
+      containers:
+        - name: fernanda-api-container
+          image: ferolmos17/servicios-cloud-fernanda:2  # Cambiar imagen DOCKER
+          ports:
+            - containerPort: 5000
